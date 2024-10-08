@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Mejorada</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        /* Fuente elegante y limpia */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        /* Título estilizado */
+        h1 {
+            font-size: 2.5rem;
+            color: #444;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Estilo del contenedor principal */
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        /* Estilo del input y botón */
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo de la red */
+        #mynetwork {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Estilo del footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Búsqueda de Red</h1>
+        <input type="text" id="queryInput" placeholder="Ingresa tu búsqueda...">
+        <button onclick="fetchData()">Buscar</button>
+        <div id="mynetwork"></div>
+    </div>
+
+    <footer>
+        <p>2024 - Memoria sobre redes semanticas </p>
+        <p>Autor: Joaquín López N.</p>
+        <p><a href="https://users.dcc.uchile.cl/~jlopez/">About</a> | <a href="mailto:jlopez@dcc.uchile.cl">Contacto</a></p>
+    </footer>
+
+    <script src="{{url_for('static', filename='js/requesting.js')}}"></script>
+</body>
+</html>
