@@ -2,8 +2,14 @@ async function fetchData() {
     const input = document.getElementById('queryInput').value;
     const response = await fetch(`/query?input=${encodeURIComponent(input)}`);
     const data = await response.json();
-    
+    const infoContainer = document.getElementById('infoContainer');
     const container = document.getElementById('mynetwork');
+    if (data.status != 0) {
+        infoContainer.innerHTML = `<h2>No se encontraron resultados para la palabra "${input}"</h2>`;
+        container.innerHTML = '';
+        return;
+    }
+
     // provide the data in the vis format
     let network_data = {
         nodes: data.neigh.nodes,
@@ -22,12 +28,9 @@ async function fetchData() {
         }
     };
     // Rellenar el infoContainer con los sinónimos de cada acepción y actualizar el título
-    const infoContainer = document.getElementById('infoContainer');
-    const aceptions = data.asp.aseptions;
-    const word = data.asp.key;
-    
+    const aceptions = data.asp.aseptions;    
     // Limpiar el contenido previo de infoContainer y actualizar el título
-    infoContainer.innerHTML = `<h2>Acepción de la palabra "${input}"</h2>`;
+    infoContainer.innerHTML = `<h2>Acepciones de la palabra "${input}"</h2>`;
 
     // Iterar sobre cada acepción y mostrar sus sinónimos
     aceptions.forEach((aception, index) => {
