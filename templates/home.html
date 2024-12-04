@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Mejorada</title>
+    <title>Buscador de Sinónimos</title>
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='js/style.css')}}">
 </head>
@@ -13,7 +13,7 @@
             <h1>Búsqueda de Red</h1>
             <input type="text" id="queryInput" placeholder="Ingresa tu búsqueda...">
             <button onclick="fetchData()">Buscar</button>
-            <div id="mynetwork"></div>
+            <div id="mynetwork" style="height: 500px; border: 1px solid lightgray;"></div>
         </div>
         <div class="side-info" id="infoContainer">
             <h2>Información de la consulta</h2>
@@ -22,11 +22,12 @@
     </div>
 
     <footer>
-        <p>2024 - Memoria sobre redes semanticas </p>
+        <p>2024 - Memoria sobre redes semánticas </p>
         <p>Autor: Joaquín López N.</p>
         <p><a href="https://users.dcc.uchile.cl/~jlopez/">About</a> | <a href="mailto:jlopez@dcc.uchile.cl">Contacto</a></p>
     </footer>
 
+    <!-- Asegúrate de que este script contiene las funciones modificadas -->
     <script src="{{url_for('static', filename='js/requesting.js')}}"></script>
 </body>
 </html>

@@ -7,6 +7,8 @@ USER = 'neo4j'
 PASSWORD = 'wena4321'
 AUTH = (USER, PASSWORD)
 
+COLORS = ["rgb(255,0,0)", "rgb(0,255,0)", "rgb(0,0,255)", "rgb(255,255,0)", "rgb(0,255,255)", "rgb(255,0,255)", "rgb(128,128,128)", "rgb(128,0,0)", "rgb(128,128,0)", "rgb(0,128,0)", "rgb(128,0,128)", "rgb(0,128,128)", "rgb(0,0,128)", "rgb(0,0,0)", "rgb(255,255,255)"]
+
 with open("datos_12.json", "r") as f:
     DICT = {d['key']:d for d in json.load(f)}
 
@@ -54,16 +56,18 @@ def to_json(word, wordid, records, nodos_a_agregar):
             "arrows": {"to": {"enabled": True, "type": "arrow",}},
             "color": "rgb(0,0,0)"
             })
-        # checkear = (cercano['id'], cercano['palabra'])
-        # if checkear in nodes:
-        #     inicio = record['b']
-        #     final = record['c']
-        #     relationships.append({"from": inicio['id'],
-        #     "to": final['id'],
-        #     "arrows": {"to": {"enabled": True, "type": "arrow",}},
-        #     "color": "rgb(0,0,0)"
-        #     })
-    retdict['nodes'] = [{"id": n[0], "label": n[1], "color": "rgb(255,255,255)",} for n in nodes]
+    # colors = [(syn["synonims"],color) for syn,color in zip(DICT[word]["aseptions"], COLORS)]
+    # l = []
+    # for n in nodes: 
+    #    for syns, color in colors:
+    #         if n[1] in syns:
+    #            l.append({"id": n[0], "label": n[1], "color": {"background": "white","border":color}} )
+    #         #else:
+    #         #   l.append({"id": n[0], "label": n[1], "color": {"border":"rgb(0,0,0)"}})
+    
+    # print(l)
+    # retdict['nodes'] = l
+    retdict['nodes'] = [{"id": n[0], "label": n[1], "color": "rgb(255,255,255)"} for n in nodes]
     retdict['edges'] = relationships
     return retdict
         
@@ -84,7 +88,7 @@ def distance_one(word: str) -> dict:
 
 def main(query: str):
     with GraphDatabase.driver(URI, auth=AUTH).session(database="neo4j") as session:
-        vecinos = session.read_transaction(get_distance_one, query)
+        _,vecinos = session.read_transaction(get_distance_one, query)
         for vecino in vecinos:
             print(f"{vecino['b']['palabra']} -> {vecino['c']['palabra']}")
             # path = vecino['p']  # Aquí asumimos que 'p' es el Path
