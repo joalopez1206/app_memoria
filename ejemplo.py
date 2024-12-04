@@ -1,10 +1,12 @@
 from neo4j import GraphDatabase, RoutingControl
 import json
 PORT = 7687
-
 URI = f'bolt://localhost:{PORT}'
-USER = 'neo4j' 
-PASSWORD = 'wena4321'
+
+with open("credentials.json", "r") as f:
+    data = json.load(f)
+    USER = data['user']
+    PASSWORD = data['password']
 AUTH = (USER, PASSWORD)
 
 COLORS = ["rgb(255,0,0)", "rgb(0,255,0)", "rgb(0,0,255)", "rgb(255,255,0)", "rgb(0,255,255)", "rgb(255,0,255)", "rgb(128,128,128)", "rgb(128,0,0)", "rgb(128,128,0)", "rgb(0,128,0)", "rgb(128,0,128)", "rgb(0,128,128)", "rgb(0,0,128)", "rgb(0,0,0)", "rgb(255,255,255)"]
