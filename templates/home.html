@@ -8,26 +8,34 @@
     <link rel="stylesheet" href="{{url_for('static', filename='js/style.css')}}">
 </head>
 <body>
-    <div class="container">
-        <div class="search-visualization">
-            <h1>Búsqueda de Red</h1>
-            <input type="text" id="queryInput" placeholder="Ingresa tu búsqueda...">
-            <button onclick="fetchData()">Buscar</button>
-            <div id="mynetwork" style="height: 500px; border: 1px solid lightgray;"></div>
+    <div class="main-container">
+        <div class="info-panel">
+            <h2>¿Cómo funciona?</h2>
+            <p>Esta herramienta te permite ingresar una palabra y obtener una representación visual de sus acepciones y relaciones con otros términos semánticamente cercanos. El objetivo es brindarte una perspectiva amplia de la palabra, mostrando sinónimos y conceptos relacionados que pueden ayudarte a comprender matices, ampliar tu vocabulario o encontrar el término más adecuado para tu contexto.</p>
+            <p>Por ejemplo, si haces clic en <span class="synonym example" onclick="handleExampleClick('fuego')">"fuego"</span>, verás un grafo interactivo que muestra las distintas acepciones del término, sus sinónimos, y cómo estas relaciones forman una red semántica. Puedes buscar otros sinónimos en el buscador o hacer click en las acepciones a tu derecha.</p>
+            <p>Prueba con diferentes palabras y observa cómo el grafo cambia, revelando nuevos enlaces y significados. Esta aplicación busca ser una herramienta educativa, útil en la investigación léxica o simplemente para satisfacer la curiosidad.</p>
         </div>
-        <div class="side-info" id="infoContainer">
-            <h2>Información de la consulta</h2>
-            <p id="infoText">No hay datos para mostrar aún.</p>
+
+        <div class="container">
+            <div class="search-visualization">
+                <h1>Búsqueda de Red</h1>
+                <input type="text" id="queryInput" placeholder="Ingresa tu búsqueda...">
+                <button onclick="fetchData()">Buscar</button>
+                <div id="mynetwork" style="height: 500px; border: 1px solid lightgray;"></div>
+            </div>
+            <div class="side-info" id="infoContainer">
+                <h2>Información de la consulta</h2>
+                <p id="infoText">No hay datos para mostrar aún.</p>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>2024 - Memoria sobre redes semánticas </p>
+        <p>2024 - Memoria sobre redes semánticas</p>
         <p>Autor: Joaquín López N.</p>
         <p><a href="https://users.dcc.uchile.cl/~jlopez/">About</a> | <a href="mailto:jlopez@dcc.uchile.cl">Contacto</a></p>
     </footer>
 
-    <!-- Asegúrate de que este script contiene las funciones modificadas -->
     <script src="{{url_for('static', filename='js/requesting.js')}}"></script>
 </body>
 </html>

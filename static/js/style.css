@@ -21,19 +21,6 @@ h1 {
     letter-spacing: 2px;
 }
 
-/* Estilo del contenedor principal */
-.container {
-    display: flex;
-    flex-direction: row;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 1000px;
-    margin-bottom: 40px;
-}
-
 /* Contenedor de búsqueda y visualización */
 .search-visualization {
     flex: 2;
@@ -74,7 +61,7 @@ button:hover {
 /* Ancho aumentado del grafo */
 #mynetwork {
     width: 100%;
-    height: 500px;
+    height: 600px;
     border: 2px solid #ddd;
     border-radius: 10px;
     margin-top: 20px;
@@ -125,4 +112,84 @@ footer p {
 .synonym:hover {
     color: skyblue; /* Cambia a skyblue al pasar el cursor */
     text-decoration: underline; /* Subraya al pasar el cursor */
+}
+.intro-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: 1.5;
+}
+/* Contenedor principal para acomodar el panel de información y el contenedor principal */
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    justify-content: space-between;
+}
+
+.info-panel h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-panel p {
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1600px; /* Aumentamos el ancho máximo para que haya más espacio en general */
+    margin-top: 40px;
+    margin-bottom: 40px;
+    justify-content: space-between;
+}
+
+/* Hacemos que el panel de información sea más amplio, 
+   pero no tanto como para quitarle demasiado espacio al grafo */
+.info-panel {
+    flex: 1.2;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-right: 20px;
+}
+
+/* Le damos más "peso" al contenedor principal que aloja el grafo e info de la consulta */
+.container {
+    flex: 4; 
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: none; /* Eliminamos restricción para que use el espacio disponible */
+}
+/* Ajustar el .search-visualization y la .side-info para mantener el diseño */
+.search-visualization {
+    flex: 2;
+    text-align: center;
+    margin-right: 20px;
+}
+
+/* Estilo extra para el ejemplo clickable */
+.example {
+    text-decoration: underline;
+    cursor: pointer;
+    color: skyblue;
+}
+
+.example:hover {
+    color: #0056b3;
 }

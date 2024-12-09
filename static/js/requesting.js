@@ -92,6 +92,13 @@ function handleSynonymClick(word) {
     fetchData();
 }
 
+// Función adicional para manejar el clic en la palabra ejemplo "fuego"
+function handleExampleClick(word) {
+    const queryInput = document.getElementById('queryInput');
+    queryInput.value = word;
+    fetchData();
+}
+
 // Función para escapar comillas simples en las palabras
 function escapeQuotes(word) {
     return word.replace(/'/g, "\\'");
