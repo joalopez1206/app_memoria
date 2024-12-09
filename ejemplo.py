@@ -55,8 +55,8 @@ def to_json(word: str, wordid: int, records, nodos_a_agregar):
                         if int(r['b']['id']) == iden and (int(r['c']['id']), r['c']['palabra']) in nodes]
         for record in records_of_b:
             relationships.append({
-                "from": record['b']['id'],
-                "to": record['c']['id'],
+                "from": int(record['b']['id']),
+                "to": int(record['c']['id']),
                 "arrows": {
                     "to": {
                         "enabled": True,
